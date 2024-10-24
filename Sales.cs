@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,6 +30,21 @@ namespace goods
 
             // Добавляем запись продажи
             history_[group].Add(sale);
+        }
+
+        public double GetPriceByGroup(Groups group)
+        {
+            double price = 0;
+
+            // Проверяем, есть ли записи для этой группы
+            if (history_.ContainsKey(group))
+            {
+                // Перебираем все продажи и определяем стоимость
+                foreach (Sale sale in history_[group])
+                    price += sale.good.GetPrice() * sale.quantity;
+            }
+
+            return price;
         }
     }
 }
