@@ -8,6 +8,11 @@ namespace goods
 {
     internal class Program
     {
+        List<Good> goods = new List<Good>()
+        {
+            new Good()
+        };
+
         static void Main(string[] args)
         {
         }

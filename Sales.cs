@@ -1,4 +1,6 @@
-﻿namespace goods
+﻿using System.Collections.Generic;
+
+namespace goods
 {
     public class Sales
     {
